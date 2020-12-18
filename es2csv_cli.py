@@ -30,7 +30,7 @@ def main():
     p.add_argument('-f', '--fields', dest='fields', default=['_all'], type=str, nargs='+', help='List of selected fields in output. Default is %(default)s.')
     p.add_argument('-S', '--sort', dest='sort', default=[], type=str, nargs='+', metavar='FIELDS', help='List of <field>:<direction> pairs to sort on. Default is %(default)s.')
     p.add_argument('-d', '--delimiter', dest='delimiter', default=',', type=str, help='Delimiter to use in CSV file. Default is "%(default)s".')
-    p.add_argument('-n', '--quotechar', dest='quotechar', default='"', type=str, help='Character use to quote (enclose) the value with. Default is "%(default)s".')
+    p.add_argument('-c', '--quotechar', dest='quotechar', default='"', type=str, help='Character use to quote (enclose) the value with. Default is "%(default)s".')
     p.add_argument('-m', '--max', dest='max_results', default=0, type=int, metavar='INTEGER', help='Maximum number of results to return. Default is %(default)s.')
     p.add_argument('-s', '--scroll-size', dest='scroll_size', default=100, type=int, metavar='INTEGER', help='Scroll size for each batch of results. Default is %(default)s.')
     p.add_argument('-k', '--kibana-nested', dest='kibana_nested', action='store_true', help='Format nested fields in Kibana style.')

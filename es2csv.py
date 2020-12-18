@@ -185,7 +185,10 @@ class Es2csv:
                 if self.opts.kibana_nested:
                     [to_keyvalue_pairs(item, ancestors) for item in source]
                 else:
-                    [to_keyvalue_pairs(item, ancestors + [str(index)]) for index, item in enumerate(source)]
+                    header = header_delimeter.join(ancestors)
+                    self.csv_headers.append(header)
+                    value_separator = ','
+                    out[header] = value_separator.join(source)
             else:
                 header = header_delimeter.join(ancestors)
                 if header not in self.csv_headers:

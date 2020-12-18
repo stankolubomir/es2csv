@@ -13,7 +13,7 @@ Quick Look Demo
 
 Requirements
 ------------
-| This tool should be used with Elasticsearch 5.x version, for older version please check `2.x release <https://github.com/taraslayshchuk/es2csv/tree/2.x>`_.
+| This tool should be used with Elasticsearch 7.x version, for older version please check `2.x release <https://github.com/taraslayshchuk/es2csv/tree/2.x>`_.
 | You also need `Python 2.7.x <https://www.python.org/downloads/>`_ and `pip <https://pip.pypa.io/en/stable/installing/>`_.
 
 Installation
@@ -23,7 +23,7 @@ From source:
 
 .. code-block:: bash
 
-    $ pip install git+https://github.com/taraslayshchuk/es2csv.git
+    $ pip install git+https://github.com/rootpd/es2csv.git
 
 From pip:
 
@@ -38,8 +38,8 @@ Usage
  $ es2csv [-h] -q QUERY [-u URL] [-a AUTH] [-i INDEX [INDEX ...]]
           [-D DOC_TYPE [DOC_TYPE ...]] [-t TAGS [TAGS ...]] -o FILE
           [-f FIELDS [FIELDS ...]] [-S FIELDS [FIELDS ...]] [-d DELIMITER]
-          [-m INTEGER] [-s INTEGER] [-k] [-r] [-e] [--verify-certs]
-          [--ca-certs CA_CERTS] [--client-cert CLIENT_CERT]
+          [-q QUOTECHAR] [-m INTEGER] [-s INTEGER] [-k] [-r] [-e]
+          [--verify-certs] [--ca-certs CA_CERTS] [--client-cert CLIENT_CERT]
           [--client-key CLIENT_KEY] [-v] [--debug]
 
  Arguments:
@@ -53,6 +53,7 @@ Usage
   -f, --fields FIELDS [FIELDS ...]         List of selected fields in output. Default is ['_all'].
   -S, --sort FIELDS [FIELDS ...]           List of <field>:<direction> pairs to sort on. Default is [].
   -d, --delimiter DELIMITER                Delimiter to use in CSV file. Default is ",".
+  -c, --quotechar QUOTECHAR                Character use to quote (enclose) the value with. Default is '"'.
   -m, --max INTEGER                        Maximum number of results to return. Default is 0.
   -s, --scroll-size INTEGER                Scroll size for each batch of results. Default is 100.
   -k, --kibana-nested                      Format nested fields in Kibana style.
