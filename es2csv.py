@@ -186,7 +186,8 @@ class Es2csv:
                     [to_keyvalue_pairs(item, ancestors) for item in source]
                 else:
                     header = header_delimeter.join(ancestors)
-                    self.csv_headers.append(header)
+                    if header not in self.csv_headers:
+                        self.csv_headers.append(header)
                     value_separator = ','
                     out[header] = value_separator.join(source)
             else:
