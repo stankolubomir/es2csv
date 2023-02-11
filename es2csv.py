@@ -209,12 +209,12 @@ class Es2csv:
 
     def write_to_csv(self):
         csv.register_dialect(
-            name=u"export", 
-            delimiter=self.opts.delimiter.decode('utf-8'), 
-            quotechar=self.opts.quotechar.decode('utf-8'), 
-            doublequote=True, 
+            name=u"export",
+            delimiter=self.opts.delimiter,
+            quotechar=self.opts.quotechar,
+            doublequote=True,
             skipinitialspace=False,
-            lineterminator=u'\r\n', 
+            lineterminator=u'\r\n',
             quoting=csv.QUOTE_ALL
         )
 
@@ -222,7 +222,7 @@ class Es2csv:
             self.num_results = sum(1 for line in codecs.open(self.tmp_file, mode='r', encoding='utf-8'))
             if self.num_results > 0:
                 output_file = codecs.open(self.opts.output_file, mode='a', encoding='utf-8')
-                csv_writer = csv.DictWriter(output_file, fieldnames=self.csv_headers, dialect="export")        
+                csv_writer = csv.DictWriter(output_file, fieldnames=self.csv_headers, dialect="export")
                 csv_writer.writeheader()
                 timer = 0
                 widgets = ['Write to csv ',
